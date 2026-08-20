@@ -1,0 +1,68 @@
+name: Org Compose Validate
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - "docker-compose.build.yml"
+      - "docker-compose.yml"
+      - ".env.example"
+      - ".github/workflows/org-compose-validate.yml"
+  pull_request:
+    paths:
+      - "docker-compose.build.yml"
+      - "docker-compose.yml"
+      - ".env.example"
+      - ".github/workflows/org-compose-validate.yml"
+      - "docs/**"
+  workflow_dispatch:
+
+jobs:
+  compose-config:
+    name: Validate docker-compose.build.yml
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Docker Compose config
+        run: |
+          docker compose -f docker-compose.build.yml --env-file .env.example config >/dev/null
+          echo "compose config OK"
+
+  docs-present:
+    name: Check guideline docs exist
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Required docs
+        run: |
+          set -euo pipefail
+          for f in \
+            docs/index.md \
+            docs/getting-started/plug-in.md \
+            docs/observability/overview.md \
+            docs/observability/get-started.md \
+            docs/observability/data-model.md \
+            docs/observability/best-practices.md \
+            docs/observability/instrumentation.md \
+            docs/observability/sessions.md \
+            docs/observability/environments.md \
+            docs/observability/tags-and-metadata.md \
+            docs/evaluation/overview.md \
+            docs/evaluation/agent-evaluation.md \
+            docs/evaluation/score-catalog.md \
+            docs/evaluation/datasets-and-experiments.md \
+            docs/evaluation/llm-as-judge-and-openai.md \
+            docs/prompt-management/overview.md \
+            docs/prompt-management/versioning-and-labels.md \
+            docs/prompt-management/use-in-applications.md \
+            docs/architecture/overview.md \
+            docs/architecture/product-intent.md \
+            docs/operations/deploy.md
+          do
+            test -f "$f" || { echo "missing $f"; exit 1; }
+          done
+          echo "docs OK"
