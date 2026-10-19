@@ -441,8 +441,8 @@ importers:
         specifier: ^4.0.1
         version: 4.0.1
       '@types/lodash':
-        specifier: ^4.17.24
-        version: 4.17.24
+        specifier: ^4.17.26
+        version: 4.17.26
       '@types/node':
         specifier: ^24.3.0
         version: 24.3.0
@@ -952,8 +952,8 @@ importers:
         specifier: ^4.0.1
         version: 4.0.1
       '@types/lodash':
-        specifier: ^4.17.24
-        version: 4.17.24
+        specifier: ^4.17.26
+        version: 4.17.26
       '@types/node':
         specifier: 24.3.0
         version: 24.3.0
@@ -1157,8 +1157,8 @@ importers:
         specifier: ^5.0.6
         version: 5.0.6
       '@types/lodash':
-        specifier: ^4.17.24
-        version: 4.17.24
+        specifier: ^4.17.26
+        version: 4.17.26
       '@types/node':
         specifier: ^24.3.0
         version: 24.3.0
@@ -5866,8 +5866,8 @@ packages:
   '@types/jssha@2.0.0':
     resolution: {integrity: sha512-oBnY3csYnXfqZXDRBJwP1nDDJCW/+VMJ88UHT4DCy0deSXpJIQvMCwYlnmdW4M+u7PiSfQc44LmiFcUbJ8hLEw==}
 
-  '@types/lodash@4.17.24':
-    resolution: {integrity: sha512-gIW7lQLZbue7lRSWEFql49QJJWThrTFFeIMJdp3eH4tKoxm1OvEPg02rm4wCCSHS0cL3/Fizimb35b7k8atwsQ==}
+  '@types/lodash@4.17.26':
+    resolution: {integrity: sha512-48NWfiY6oNcKOh47Z4h+sIvwcQR91h6KPhaYKgeMIrkT2jV82Gy90SErj60vW8jQbeMSOSbhIv3bZ7JoqPPVhA==}
 
   '@types/mdast@4.0.4':
     resolution: {integrity: sha512-kGaNbPh1k7AFzgpud/gMdvIm5xuECykRR+JnWKQno9TAXVa6WIVCGTPvYGekIDL4uwCZQSYbUxNBSb1aUo79oA==}
@@ -17330,7 +17330,7 @@ snapshots:
 
   '@types/jssha@2.0.0': {}
 
-  '@types/lodash@4.17.24': {}
+  '@types/lodash@4.17.26': {}
 
   '@types/mdast@4.0.4':
     dependencies:
